@@ -1,12 +1,5 @@
 # SmartSchool, le portail de gestion scolaire
 
-## Lancer le projet
-1. Téléchargez et extrayez `SmartSchool.zip`.
-2. Ouvrez le dossier `smart-school`.
-3. Double-cliquez sur `index.html` ou ouvrez-le avec Live Server dans VS Code.
-
-Aucune installation, aucun serveur et aucune base de données ne sont nécessaires pour cette démonstration.
-
 ## Fonctionnalités front-end
 - Tableau de bord avec indicateurs, graphiques CSS et activités récentes.
 - Navigation entre les espaces Élèves, Enseignants, Présences, Notes, Emploi du temps, Rapports, Messages et Paramètres.
