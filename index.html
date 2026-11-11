@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101c2e" />
+    <title>SmartSchool — Gestion scolaire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#" aria-label="SmartSchool accueil">
+          <span class="brand-mark"><i class="fa-mark">S</i></span>
+          <span
+            ><strong>smart<span>school</span></strong
+            ><small>PORTAIL SCOLAIRE</small></span
+          >
+        </a>
+        <div class="school-switch">
+          <div class="school-avatar">LP</div>
+          <div class="school-info">
+            <strong>Lycée Pilote</strong><small>Médenine · Tunisie</small>
+          </div>
+          <span class="chevron">⌄</span>
+        </div>
+        <div class="nav-caption">ESPACE PRINCIPAL</div>
+        <nav class="nav-menu" aria-label="Navigation principale">
+          <button class="nav-item active" data-page="dashboard">
+            <span class="nav-icon">▦</span> Tableau de bord
+          </button>
+          <button class="nav-item" data-page="students">
+            <span class="nav-icon">♙</span> Élèves
+            <span class="nav-count">248</span>
+          </button>
+          <button class="nav-item" data-page="teachers">
+            <span class="nav-icon">♧</span> Enseignants
+          </button>
+          <button class="nav-item" data-page="attendance">
+            <span class="nav-icon">◷</span> Présences
+          </button>
+          <button class="nav-item" data-page="grades">
+            <span class="nav-icon">▤</span> Notes & résultats
+          </button>
+          <button class="nav-item" data-page="schedule">
+            <span class="nav-icon">▦</span> Emploi du temps
+          </button>
+        </nav>
+        <div class="nav-caption second-caption">GESTION</div>
+        <nav class="nav-menu">
+          <button class="nav-item" data-page="reports">
+            <span class="nav-icon">▥</span> Rapports & statistiques
+          </button>
+          <button class="nav-item" data-page="messages">
+            <span class="nav-icon">✉</span> Messages
+            <span class="unread-dot"></span>
+          </button>
+          <button class="nav-item" data-page="settings">
+            <span class="nav-icon">⚙</span> Paramètres
+          </button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="help-card">
+            <div class="help-icon">✦</div>
+            <strong>Besoin d'aide ?</strong>
+            <p>Consultez le guide de prise en main de SmartSchool.</p>
+            <button class="text-button" data-backend="true">
+              Consulter le guide <span>↗</span>
+            </button>
+          </div>
+          <div class="profile-mini">
+            <div class="avatar avatar-purple">RE</div>
+            <div>
+              <strong>Rayen Essayeb</strong><small>Administrateur</small>
+            </div>
+            <button class="more-button" aria-label="Plus d'options">···</button>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <button
+            class="mobile-menu"
+            id="mobileMenu"
+            aria-label="Ouvrir le menu"
+          >
+            ☰
+          </button>
+          <div class="breadcrumb">
+            <span>Workspace</span><b>/</b
+            ><strong id="breadcrumbCurrent">Tableau de bord</strong>
+          </div>
+          <div class="top-actions">
+            <div class="search-box">
+              <span>⌕</span
+              ><input
+                id="globalSearch"
+                type="search"
+                placeholder="Rechercher..."
+                aria-label="Rechercher"
+              /><kbd>⌘ K</kbd>
+            </div>
+            <button
+              class="icon-button notification-button"
+              id="notificationsBtn"
+              aria-label="Notifications"
+            >
+              ♧<i></i>
+            </button>
+            <div class="top-divider"></div>
+            <div class="top-user">
+              <div class="avatar avatar-purple">RE</div>
+              <div>
+                <strong>Rayen Essayeb</strong><small>Administrateur</small>
+              </div>
+              <span>⌄</span>
+            </div>
+          </div>
+        </header>
+
+        <section class="page-content">
+          <section class="page-view active" id="page-dashboard">
+            <div class="welcome-row">
+              <div>
+                <div class="eyebrow">
+                  <span class="live-dot"></span> VOTRE ESPACE DE GESTION
+                </div>
+                <h1>Bonjour, Rayen <span class="wave">✦</span></h1>
+                <p class="page-subtitle">
+                  Voici ce qui se passe dans votre établissement aujourd'hui.
+                </p>
+              </div>
+              <div class="welcome-actions">
+                <button class="button button-light" data-backend="true">
+                  ↓ Exporter le rapport</button
+                ><button class="button button-primary" data-backend="true">
+                  <span>＋</span> Nouvelle inscription
+                </button>
+              </div>
+            </div>
+            <div class="date-strip">
+              <span class="calendar-icon">▦</span
+              ><strong id="todayDate">Mercredi 11 novembre 2026</strong
+              ><span class="date-separator">·</span
+              ><span>Année scolaire 2026–2027</span
+              ><span class="status-pill"><i></i> Établissement actif</span>
+            </div>
+
+            <div class="stats-grid">
+              <article class="stat-card">
+                <div class="stat-top">
+                  <span>Total des élèves</span
+                  ><span class="stat-icon blue">♙</span>
+                </div>
+                <div class="stat-value">248</div>
+                <div class="stat-foot">
+                  <span class="trend positive">↗ 8,2%</span
+                  ><span>vs. année précédente</span>
+                </div>
+                <div class="sparkline spark-blue">
+                  <svg viewBox="0 0 120 32" preserveAspectRatio="none">
+                    <path
+                      d="M0 27 C12 24 14 18 26 21 S42 15 52 18 S68 9 78 14 S94 6 104 9 S114 3 120 2"
+                    />
+                  </svg>
+                </div>
+              </article>
+              <article class="stat-card">
+                <div class="stat-top">
+                  <span>Enseignants</span
+                  ><span class="stat-icon violet">♧</span>
+                </div>
+                <div class="stat-value">32</div>
+                <div class="stat-foot">
+                  <span class="trend positive">↗ 2,4%</span
+                  ><span>équipe pédagogique</span>
+                </div>
+                <div class="sparkline spark-violet">
+                  <svg viewBox="0 0 120 32" preserveAspectRatio="none">
+                    <path
+                      d="M0 24 C12 23 20 16 30 19 S48 13 60 17 S76 7 87 11 S105 4 120 5"
+                    />
+                  </svg>
+                </div>
+              </article>
+              <article class="stat-card">
+                <div class="stat-top">
+                  <span>Taux de présence</span
+                  ><span class="stat-icon green">◷</span>
+                </div>
+                <div class="stat-value">
+                  94,8<span class="value-unit">%</span>
+                </div>
+                <div class="stat-foot">
+                  <span class="trend positive">↗ 1,6%</span
+                  ><span>cette semaine</span>
+                </div>
+                <div class="sparkline spark-green">
+                  <svg viewBox="0 0 120 32" preserveAspectRatio="none">
+                    <path
+                      d="M0 22 C13 19 17 23 29 17 S45 18 57 11 S75 14 84 8 S102 11 120 3"
+                    />
+                  </svg>
+                </div>
+              </article>
+              <article class="stat-card">
+                <div class="stat-top">
+                  <span>Moyenne générale</span
+                  ><span class="stat-icon orange">★</span>
+                </div>
+                <div class="stat-value">
+                  14,6<span class="value-unit">/20</span>
+                </div>
+                <div class="stat-foot">
+                  <span class="trend positive">↗ 0,7 pt</span
+                  ><span>tous niveaux confondus</span>
+                </div>
+                <div class="sparkline spark-orange">
+                  <svg viewBox="0 0 120 32" preserveAspectRatio="none">
+                    <path
+                      d="M0 26 C13 24 19 16 30 20 S47 13 59 17 S73 9 85 12 S104 4 120 2"
+                    />
+                  </svg>
+                </div>
+              </article>
+            </div>
+
+            <div class="dashboard-grid">
+              <article class="panel attendance-panel">
+                <div class="panel-heading">
+                  <div>
+                    <h2>Vue d'ensemble</h2>
+                    <p>Évolution des présences cette semaine</p>
+                  </div>
+                  <button class="select-button" id="chartPeriod">
+                    Cette semaine⌄
+                  </button>
+                </div>
+                <div class="chart-legend">
+                  <span><i class="legend-blue"></i> Présents</span
+                  ><span><i class="legend-pale"></i> Absents</span>
+                </div>
+                <div class="chart-area">
+                  <div class="y-labels">
+                    <span>100%</span><span>75%</span><span>50%</span
+                    ><span>25%</span><span>0%</span>
+                  </div>
+                  <div class="chart-main">
+                    <div class="grid-lines">
+                      <i></i><i></i><i></i><i></i><i></i>
+                    </div>
+                    <div class="bar-chart">
+                      <div class="bar-group">
+                        <div class="bars">
+                          <i class="bar present" style="height: 91%"></i
+                          ><i class="bar absent" style="height: 9%"></i>
+                        </div>
+                        <small>Lun.</small>
+                      </div>
+                      <div class="bar-group">
+                        <div class="bars">
+                          <i class="bar present" style="height: 95%"></i
+                          ><i class="bar absent" style="height: 5%"></i>
+                        </div>
+                        <small>Mar.</small>
+                      </div>
+                      <div class="bar-group">
+                        <div class="bars">
+                          <i class="bar present" style="height: 88%"></i
+                          ><i class="bar absent" style="height: 12%"></i>
+                        </div>
+                        <small>Mer.</small>
+                      </div>
+                      <div class="bar-group">
+                        <div class="bars">
+                          <i class="bar present" style="height: 97%"></i
+                          ><i class="bar absent" style="height: 3%"></i>
+                        </div>
+                        <small>Jeu.</small>
+                      </div>
+                      <div class="bar-group">
+                        <div class="bars">
+                          <i class="bar present" style="height: 94%"></i
+                          ><i class="bar absent" style="height: 6%"></i>
+                        </div>
+                        <small>Ven.</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article class="panel distribution-panel">
+                <div class="panel-heading">
+                  <div>
+                    <h2>Répartition des élèves</h2>
+                    <p>Par filière</p>
+                  </div>
+                  <button class="dots-button" aria-label="Plus d'options">
+                    ···
+                  </button>
+                </div>
+                <div class="donut-wrap">
+                  <div class="donut">
+                    <div class="donut-center">
+                      <strong>248</strong><span>ÉLÈVES</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="distribution-legend">
+                  <div>
+                    <i class="legend-dot dot-blue"></i
+                    ><span>Sciences informatiques</span><strong>96</strong>
+                  </div>
+                  <div>
+                    <i class="legend-dot dot-violet"></i
+                    ><span>Mathématiques</span><strong>82</strong>
+                  </div>
+                  <div>
+                    <i class="legend-dot dot-orange"></i
+                    ><span>Sciences expérimentales</span><strong>70</strong>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="bottom-grid">
+              <article class="panel students-panel">
+                <div class="panel-heading">
+                  <div>
+                    <h2>Derniers élèves inscrits</h2>
+                    <p>Les inscriptions les plus récentes</p>
+                  </div>
+                  <button class="link-button" data-page-link="students">
+                    Voir tous les élèves <span>→</span>
+                  </button>
+                </div>
+                <div class="table-wrap">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>ÉLÈVE</th>
+                        <th>CLASSE</th>
+                        <th>FILIÈRE</th>
+                        <th>STATUT</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="person-cell">
+                            <div class="avatar avatar-blue">SK</div>
+                            <span
+                              ><strong>Salma Khelifi</strong
+                              ><small>SS-2026-0248</small></span
+                            >
+                          </div>
+                        </td>
+                        <td>4ème année</td>
+                        <td>Informatique</td>
+                        <td><span class="status-tag success">Actif</span></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="person-cell">
+                            <div class="avatar avatar-pink">MA</div>
+                            <span
+                              ><strong>Mohamed Amine</strong
+                              ><small>SS-2026-0247</small></span
+                            >
+                          </div>
+                        </td>
+                        <td>3ème année</td>
+                        <td>Mathématiques</td>
+                        <td><span class="status-tag success">Actif</span></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="person-cell">
+                            <div class="avatar avatar-yellow">LB</div>
+                            <span
+                              ><strong>Lina Ben Salem</strong
+                              ><small>SS-2026-0246</small></span
+                            >
+                          </div>
+                        </td>
+                        <td>4ème année</td>
+                        <td>Sciences</td>
+                        <td>
+                          <span class="status-tag pending">En attente</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="person-cell">
+                            <div class="avatar avatar-green">YA</div>
+                            <span
+                              ><strong>Youssef Ayari</strong
+                              ><small>SS-2026-0245</small></span
+                            >
+                          </div>
+                        </td>
+                        <td>2ème année</td>
+                        <td>Informatique</td>
+                        <td><span class="status-tag success">Actif</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </article>
+              <article class="panel activity-panel">
+                <div class="panel-heading">
+                  <div>
+                    <h2>Activité récente</h2>
+                    <p>Les dernières mises à jour</p>
+                  </div>
+                  <button class="dots-button" aria-label="Plus d'options">
+                    ···
+                  </button>
+                </div>
+                <div class="activity-list">
+                  <div class="activity-item">
+                    <span class="activity-symbol blue">♙</span>
+                    <div>
+                      <p>
+                        <strong>Nouvelle inscription</strong><br />Salma Khelifi
+                        a rejoint la 4ème Info.
+                      </p>
+                      <small>Il y a 12 minutes</small>
+                    </div>
+                  </div>
+                  <div class="activity-item">
+                    <span class="activity-symbol green">✓</span>
+                    <div>
+                      <p>
+                        <strong>Présences enregistrées</strong><br />La classe
+                        3ème Math est complète.
+                      </p>
+                      <small>Il y a 48 minutes</small>
+                    </div>
+                  </div>
+                  <div class="activity-item">
+                    <span class="activity-symbol orange">★</span>
+                    <div>
+                      <p>
+                        <strong>Notes mises à jour</strong><br />Les résultats
+                        de physique sont disponibles.
+                      </p>
+                      <small>Il y a 2 heures</small>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <footer class="footer">
+              <span>© 2026 SmartSchool · Conçu par Rayen Essayeb</span
+              ><span
+                >Version démo 1.0.0 <i class="footer-dot"></i> Interface de
+                démonstration</span
+              >
+            </footer>
+          </section>
+
+          <section class="page-view" id="page-students">
+            <div class="section-title-row">
+              <div>
+                <div class="eyebrow">GESTION PÉDAGOGIQUE</div>
+                <h1>Élèves</h1>
+                <p class="page-subtitle">
+                  Consultez et gérez les dossiers des élèves de l'établissement.
+                </p>
+              </div>
+              <button class="button button-primary" data-backend="true">
+                ＋ Ajouter un élève
+              </button>
+            </div>
+            <div class="stats-grid compact-stats">
+              <article class="stat-card">
+                <div class="stat-top">
+                  <span>Total des élèves</span
+                  ><span class="stat-icon blue">♙</span>
+                </div>
+                <div class="stat-value">248</div>
+                <div class="stat-foot">Toutes les classes</div>
+              </article>
+              <article class="stat-card">
+                <div class="stat-top">
+                  <span>Élèves actifs</span
+                  ><span class="stat-icon green">✓</span>
+                </div>
+                <div class="stat-value">241</div>
+                <div class="stat-foot">97,2% des inscriptions</div>
+              </article>
+              <article class="stat-card">
+                <div class="stat-top">
+                  <span>En attente</span><span class="stat-icon orange">◷</span>
+                </div>
+                <div class="stat-value">7</div>
+                <div class="stat-foot">Dossiers à vérifier</div>
+              </article>
+            </div>
+            <article class="panel full-panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>Liste des élèves</h2>
+                  <p>Année scolaire 2026–2027 · Données de démonstration</p>
+                </div>
+                <div class="table-tools">
+                  <input
+                    class="table-search"
+                    id="studentSearch"
+                    placeholder="⌕ Rechercher un élève..."
+                  /><button class="button button-light" data-backend="true">
+                    Filtrer
+                  </button>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <table id="studentsTable">
+                  <thead>
+                    <tr>
+                      <th>ÉLÈVE</th>
+                      <th>IDENTIFIANT</th>
+                      <th>CLASSE</th>
+                      <th>FILIÈRE</th>
+                      <th>STATUT</th>
+                      <th>ACTION</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="person-cell">
+                          <div class="avatar avatar-blue">SK</div>
+                          <strong>Salma Khelifi</strong>
+                        </div>
+                      </td>
+                      <td>SS-2026-0248</td>
+                      <td>4ème année</td>
+                      <td>Informatique</td>
+                      <td><span class="status-tag success">Actif</span></td>
+                      <td>
+                        <button class="row-action" data-backend="true">
+                          Voir ↗
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="person-cell">
+                          <div class="avatar avatar-pink">MA</div>
+                          <strong>Mohamed Amine</strong>
+                        </div>
+                      </td>
+                      <td>SS-2026-0247</td>
+                      <td>3ème année</td>
+                      <td>Mathématiques</td>
+                      <td><span class="status-tag success">Actif</span></td>
+                      <td>
+                        <button class="row-action" data-backend="true">
+                          Voir ↗
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="person-cell">
+                          <div class="avatar avatar-yellow">LB</div>
+                          <strong>Lina Ben Salem</strong>
+                        </div>
+                      </td>
+                      <td>SS-2026-0246</td>
+                      <td>4ème année</td>
+                      <td>Sciences</td>
+                      <td>
+                        <span class="status-tag pending">En attente</span>
+                      </td>
+                      <td>
+                        <button class="row-action" data-backend="true">
+                          Voir ↗
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="person-cell">
+                          <div class="avatar avatar-green">YA</div>
+                          <strong>Youssef Ayari</strong>
+                        </div>
+                      </td>
+                      <td>SS-2026-0245</td>
+                      <td>2ème année</td>
+                      <td>Informatique</td>
+                      <td><span class="status-tag success">Actif</span></td>
+                      <td>
+                        <button class="row-action" data-backend="true">
+                          Voir ↗
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="person-cell">
+                          <div class="avatar avatar-purple">NS</div>
+                          <strong>Nour Saidi</strong>
+                        </div>
+                      </td>
+                      <td>SS-2026-0244</td>
+                      <td>3ème année</td>
+                      <td>Mathématiques</td>
+                      <td><span class="status-tag success">Actif</span></td>
+                      <td>
+                        <button class="row-action" data-backend="true">
+                          Voir ↗
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="person-cell">
+                          <div class="avatar avatar-orange">AB</div>
+                          <strong>Ahmed Ben Amor</strong>
+                        </div>
+                      </td>
+                      <td>SS-2026-0243</td>
+                      <td>4ème année</td>
+                      <td>Informatique</td>
+                      <td><span class="status-tag success">Actif</span></td>
+                      <td>
+                        <button class="row-action" data-backend="true">
+                          Voir ↗
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="table-pagination">
+                <span>Affichage de 6 élèves sur 248</span>
+                <div>
+                  <button disabled>←</button
+                  ><button class="current-page">1</button
+                  ><button data-backend="true">2</button
+                  ><button data-backend="true">3</button
+                  ><button data-backend="true">→</button>
+                </div>
+              </div>
+            </article>
+            <footer class="footer">
+              <span>© 2026 SmartSchool · Conçu par Rayen Essayeb</span
+              ><span>Version démo 1.0.0</span>
+            </footer>
+          </section>
+
+          <section class="page-view" id="page-teachers">
+            <div class="section-title-row">
+              <div>
+                <div class="eyebrow">RESSOURCES HUMAINES</div>
+                <h1>Enseignants</h1>
+                <p class="page-subtitle">Annuaire de l'équipe pédagogique.</p>
+              </div>
+              <button class="button button-primary" data-backend="true">
+                ＋ Ajouter un enseignant
+              </button>
+            </div>
+            <div class="stats-grid compact-stats">
+              <article class="stat-card">
+                <div class="stat-top">
+                  <span>Enseignants</span
+                  ><span class="stat-icon violet">♧</span>
+                </div>
+                <div class="stat-value">32</div>
+                <div class="stat-foot">Corps pédagogique</div>
+              </article>
+              <article class="stat-card">
+                <div class="stat-top">
+                  <span>Départements</span><span class="stat-icon blue">▦</span>
+                </div>
+                <div class="stat-value">8</div>
+                <div class="stat-foot">Disciplines représentées</div>
+              </article>
+              <article class="stat-card">
+                <div class="stat-top">
+                  <span>Disponibles</span><span class="stat-icon green">✓</span>
+                </div>
+                <div class="stat-value">29</div>
+                <div class="stat-foot">Aujourd'hui</div>
+              </article>
+            </div>
+            <div class="people-grid">
+              <article class="teacher-card">
+                <div class="teacher-cover cover-blue"></div>
+                <div class="teacher-avatar avatar-blue">MK</div>
+                <h3>Meriem Kacem</h3>
+                <p>Mathématiques</p>
+                <div class="teacher-meta">
+                  <span>⌑ 4 classes</span><span>◷ 18 h / semaine</span>
+                </div>
+                <button
+                  class="button button-light full-button"
+                  data-backend="true"
+                >
+                  Consulter le profil
+                </button>
+              </article>
+              <article class="teacher-card">
+                <div class="teacher-cover cover-violet"></div>
+                <div class="teacher-avatar avatar-purple">HA</div>
+                <h3>Hichem Ayadi</h3>
+                <p>Informatique</p>
+                <div class="teacher-meta">
+                  <span>⌑ 3 classes</span><span>◷ 16 h / semaine</span>
+                </div>
+                <button
+                  class="button button-light full-button"
+                  data-backend="true"
+                >
+                  Consulter le profil
+                </button>
+              </article>
+              <article class="teacher-card">
+                <div class="teacher-cover cover-orange"></div>
+                <div class="teacher-avatar avatar-yellow">SB</div>
+                <h3>Salma Ben Amor</h3>
+                <p>Physique</p>
+                <div class="teacher-meta">
+                  <span>⌑ 5 classes</span><span>◷ 20 h / semaine</span>
+                </div>
+                <button
+                  class="button button-light full-button"
+                  data-backend="true"
+                >
+                  Consulter le profil
+                </button>
+              </article>
+              <article class="teacher-card">
+                <div class="teacher-cover cover-green"></div>
+                <div class="teacher-avatar avatar-green">YJ</div>
+                <h3>Yassine Jebali</h3>
+                <p>Sciences naturelles</p>
+                <div class="teacher-meta">
+                  <span>⌑ 4 classes</span><span>◷ 17 h / semaine</span>
+                </div>
+                <button
+                  class="button button-light full-button"
+                  data-backend="true"
+                >
+                  Consulter le profil
+                </button>
+              </article>
+            </div>
+            <footer class="footer">
+              <span>© 2026 SmartSchool · Conçu par Rayen Essayeb</span
+              ><span>Version démo 1.0.0</span>
+            </footer>
+          </section>
+
+          <section class="page-view" id="page-attendance">
+            <div class="section-title-row">
+              <div>
+                <div class="eyebrow">SUIVI QUOTIDIEN</div>
+                <h1>Présences</h1>
+                <p class="page-subtitle">
+                  Suivez l'assiduité des élèves et les absences.
+                </p>
+              </div>
+              <button class="button button-primary" data-backend="true">
+                ＋ Faire l'appel
+              </button>
+            </div>
+            <div class="stats-grid compact-stats">
+              <article class="stat-card">
+                <div class="stat-top">
+                  <span>Présents aujourd'hui</span
+                  ><span class="stat-icon green">✓</span>
+                </div>
+                <div class="stat-value">235</div>
+                <div class="stat-foot">94,8% des élèves</div>
+              </article>
+              <article class="stat-card">
+                <div class="stat-top">
+                  <span>Absents</span><span class="stat-icon orange">◷</span>
+                </div>
+                <div class="stat-value">13</div>
+                <div class="stat-foot">5,2% des élèves</div>
+              </article>
+              <article class="stat-card">
+                <div class="stat-top">
+                  <span>Retards</span><span class="stat-icon violet">⌚</span>
+                </div>
+                <div class="stat-value">6</div>
+                <div class="stat-foot">Depuis 8h00</div>
+              </article>
+            </div>
+            <article class="panel full-panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>Registre des présences</h2>
+                  <p>Mercredi 11 novembre 2026 · Données de démonstration</p>
+                </div>
+                <button class="button button-light" data-backend="true">
+                  Exporter
+                </button>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>CLASSE</th>
+                      <th>EFFECTIF</th>
+                      <th>PRÉSENTS</th>
+                      <th>ABSENTS</th>
+                      <th>TAUX</th>
+                      <th>DÉTAIL</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>4ème Info A</strong></td>
+                      <td>28</td>
+                      <td>27</td>
+                      <td>1</td>
+                      <td>
+                        <div class="rate-cell">
+                          <span>96,4%</span>
+                          <div class="mini-progress">
+                            <i style="width: 96.4%"></i>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <button class="row-action" data-backend="true">
+                          Détails ↗
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>3ème Math A</strong></td>
+                      <td>30</td>
+                      <td>28</td>
+                      <td>2</td>
+                      <td>
+                        <div class="rate-cell">
+                          <span>93,3%</span>
+                          <div class="mini-progress">
+                            <i style="width: 93.3%"></i>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <button class="row-action" data-backend="true">
+                          Détails ↗
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>4ème Sciences A</strong></td>
+                      <td>27</td>
+                      <td>26</td>
+                      <td>1</td>
+                      <td>
+                        <div class="rate-cell">
+                          <span>96,3%</span>
+                          <div class="mini-progress">
+                            <i style="width: 96.3%"></i>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <button class="row-action" data-backend="true">
+                          Détails ↗
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>2ème Info A</strong></td>
+                      <td>29</td>
+                      <td>26</td>
+                      <td>3</td>
+                      <td>
+                        <div class="rate-cell">
+                          <span>89,7%</span>
+                          <div class="mini-progress">
+                            <i style="width: 89.7%"></i>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <button class="row-action" data-backend="true">
+                          Détails ↗
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+            <footer class="footer">
+              <span>© 2026 SmartSchool · Conçu par Rayen Essayeb</span
+              ><span>Version démo 1.0.0</span>
+            </footer>
+          </section>
+
+          <section class="page-view" id="page-grades">
+            <div class="section-title-row">
+              <div>
+                <div class="eyebrow">RÉSULTATS ACADÉMIQUES</div>
+                <h1>Notes & résultats</h1>
+                <p class="page-subtitle">
+                  Consultez les performances et les moyennes par classe.
+                </p>
+              </div>
+              <button class="button button-primary" data-backend="true">
+                ＋ Saisir des notes
+              </button>
+            </div>
+            <div class="stats-grid compact-stats">
+              <article class="stat-card">
+                <div class="stat-top">
+                  <span>Moyenne générale</span
+                  ><span class="stat-icon blue">★</span>
+                </div>
+                <div class="stat-value">
+                  14,6<span class="value-unit">/20</span>
+                </div>
+                <div class="stat-foot">Tous niveaux confondus</div>
+              </article>
+              <article class="stat-card">
+                <div class="stat-top">
+                  <span>Taux de réussite</span
+                  ><span class="stat-icon green">↗</span>
+                </div>
+                <div class="stat-value">
+                  86,2<span class="value-unit">%</span>
+                </div>
+                <div class="stat-foot">Dernier trimestre</div>
+              </article>
+              <article class="stat-card">
+                <div class="stat-top">
+                  <span>Meilleure moyenne</span
+                  ><span class="stat-icon orange">★</span>
+                </div>
+                <div class="stat-value">18,9</div>
+                <div class="stat-foot">4ème année Informatique</div>
+              </article>
+            </div>
+            <article class="panel full-panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>Résultats par classe</h2>
+                  <p>Premier trimestre · Année 2026–2027</p>
+                </div>
+                <button class="button button-light" data-backend="true">
+                  Voir les bulletins
+                </button>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>CLASSE</th>
+                      <th>ÉLÈVES</th>
+                      <th>MOYENNE</th>
+                      <th>RÉUSSITE</th>
+                      <th>ÉVOLUTION</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>4ème Info A</strong></td>
+                      <td>28</td>
+                      <td><strong>15,8 / 20</strong></td>
+                      <td>92,8%</td>
+                      <td><span class="trend positive">↗ +1,2 pt</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>3ème Math A</strong></td>
+                      <td>30</td>
+                      <td><strong>14,9 / 20</strong></td>
+                      <td>86,7%</td>
+                      <td><span class="trend positive">↗ +0,6 pt</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>4ème Sciences A</strong></td>
+                      <td>27</td>
+                      <td><strong>14,2 / 20</strong></td>
+                      <td>85,2%</td>
+                      <td><span class="trend negative">↘ -0,3 pt</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>2ème Info A</strong></td>
+                      <td>29</td>
+                      <td><strong>13,7 / 20</strong></td>
+                      <td>79,3%</td>
+                      <td><span class="trend positive">↗ +0,9 pt</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+            <footer class="footer">
+              <span>© 2026 SmartSchool · Conçu par Rayen Essayeb</span
+              ><span>Version démo 1.0.0</span>
+            </footer>
+          </section>
+
+          <section class="page-view" id="page-schedule">
+            <div class="section-title-row">
+              <div>
+                <div class="eyebrow">ORGANISATION SCOLAIRE</div>
+                <h1>Emploi du temps</h1>
+                <p class="page-subtitle">Planning hebdomadaire des cours.</p>
+              </div>
+              <button class="button button-primary" data-backend="true">
+                ＋ Ajouter un cours
+              </button>
+            </div>
+            <article class="panel full-panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>Planning de la semaine</h2>
+                  <p>Semaine du 9 au 13 novembre 2026 · 4ème Info A</p>
+                </div>
+                <button class="select-button" data-backend="true">
+                  4ème Info A⌄
+                </button>
+              </div>
+              <div class="schedule-wrap">
+                <table class="schedule-table">
+                  <thead>
+                    <tr>
+                      <th>HORAIRE</th>
+                      <th>LUNDI</th>
+                      <th>MARDI</th>
+                      <th>MERCREDI</th>
+                      <th>JEUDI</th>
+                      <th>VENDREDI</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>08:00 – 09:00</th>
+                      <td>
+                        <div class="lesson lesson-blue">
+                          <b>Algorithmique</b><small>M. Ayadi · Salle 12</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-violet">
+                          <b>Mathématiques</b><small>M. Kacem · Salle 08</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-green">
+                          <b>Anglais</b><small>M. Trabelsi · Salle 05</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-blue">
+                          <b>Programmation</b><small>M. Ayadi · Labo 2</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-orange">
+                          <b>Physique</b><small>M. Ben Amor · Salle 10</small>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>09:00 – 10:00</th>
+                      <td>
+                        <div class="lesson lesson-blue">
+                          <b>Algorithmique</b><small>M. Ayadi · Salle 12</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-violet">
+                          <b>Mathématiques</b><small>M. Kacem · Salle 08</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-green">
+                          <b>Anglais</b><small>M. Trabelsi · Salle 05</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-blue">
+                          <b>Programmation</b><small>M. Ayadi · Labo 2</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-orange">
+                          <b>Physique</b><small>M. Ben Amor · Salle 10</small>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>10:15 – 11:15</th>
+                      <td>
+                        <div class="lesson lesson-orange">
+                          <b>Physique</b><small>M. Ben Amor · Salle 10</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-green">
+                          <b>Français</b><small>Mme Saidi · Salle 03</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-blue">
+                          <b>Base de données</b><small>M. Ayadi · Labo 2</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-violet">
+                          <b>Mathématiques</b><small>M. Kacem · Salle 08</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-green">
+                          <b>Philosophie</b><small>M. Jebali · Salle 06</small>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>11:15 – 12:15</th>
+                      <td>
+                        <div class="lesson lesson-orange">
+                          <b>Physique</b><small>M. Ben Amor · Salle 10</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-green">
+                          <b>Français</b><small>Mme Saidi · Salle 03</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-blue">
+                          <b>Base de données</b><small>M. Ayadi · Labo 2</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-violet">
+                          <b>Mathématiques</b><small>M. Kacem · Salle 08</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-green">
+                          <b>Philosophie</b><small>M. Jebali · Salle 06</small>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>14:00 – 15:00</th>
+                      <td>
+                        <div class="lesson lesson-violet">
+                          <b>Mathématiques</b><small>M. Kacem · Salle 08</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-blue">
+                          <b>Projet web</b><small>M. Ayadi · Labo 2</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-orange">
+                          <b>Sciences</b><small>Mme Gharbi · Salle 09</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-green">
+                          <b>Anglais</b><small>M. Trabelsi · Salle 05</small>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="lesson lesson-blue">
+                          <b>Projet web</b><small>M. Ayadi · Labo 2</small>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+            <footer class="footer">
+              <span>© 2026 SmartSchool · Conçu par Rayen Essayeb</span
+              ><span>Version démo 1.0.0</span>
+            </footer>
+          </section>
+
+          <section class="page-view" id="page-reports">
+            <div class="section-title-row">
+              <div>
+                <div class="eyebrow">PILOTAGE & ANALYSE</div>
+                <h1>Rapports & statistiques</h1>
+                <p class="page-subtitle">
+                  Une vision globale des performances de l'établissement.
+                </p>
+              </div>
+              <button class="button button-primary" data-backend="true">
+                ↓ Générer un rapport
+              </button>
+            </div>
+            <div class="stats-grid compact-stats">
+              <article class="stat-card">
+                <div class="stat-top">
+                  <span>Effectif total</span
+                  ><span class="stat-icon blue">♙</span>
+                </div>
+                <div class="stat-value">248</div>
+                <div class="stat-foot">Sur 8 classes</div>
+              </article>
+              <article class="stat-card">
+                <div class="stat-top">
+                  <span>Présence moyenne</span
+                  ><span class="stat-icon green">◷</span>
+                </div>
+                <div class="stat-value">94,8%</div>
+                <div class="stat-foot">Sur les 30 derniers jours</div>
+              </article>
+              <article class="stat-card">
+                <div class="stat-top">
+                  <span>Moyenne générale</span
+                  ><span class="stat-icon orange">★</span>
+                </div>
+                <div class="stat-value">14,6/20</div>
+                <div class="stat-foot">Premier trimestre</div>
+              </article>
+            </div>
+            <div class="dashboard-grid">
+              <article class="panel">
+                <div class="panel-heading">
+                  <div>
+                    <h2>Performance par filière</h2>
+                    <p>Moyenne générale sur 20</p>
+                  </div>
+                </div>
+                <div class="horizontal-bars">
+                  <div>
+                    <span>Informatique</span><b>15,8</b
+                    ><i><em style="width: 79%"></em></i>
+                  </div>
+                  <div>
+                    <span>Mathématiques</span><b>14,9</b
+                    ><i><em style="width: 74.5%"></em></i>
+                  </div>
+                  <div>
+                    <span>Sciences expérimentales</span><b>14,2</b
+                    ><i><em style="width: 71%"></em></i>
+                  </div>
+                </div>
+              </article>
+              <article class="panel">
+                <div class="panel-heading">
+                  <div>
+                    <h2>Indicateurs clés</h2>
+                    <p>Année scolaire 2026–2027</p>
+                  </div>
+                </div>
+                <div class="kpi-list">
+                  <div>
+                    <span>Réussite aux examens</span><strong>86,2%</strong>
+                  </div>
+                  <div>
+                    <span>Taux d'absentéisme</span><strong>5,2%</strong>
+                  </div>
+                  <div>
+                    <span>Progression moyenne</span
+                    ><strong class="positive">+0,7 pt</strong>
+                  </div>
+                  <div>
+                    <span>Élèves à accompagner</span><strong>18</strong>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <footer class="footer">
+              <span>© 2026 SmartSchool · Conçu par Rayen Essayeb</span
+              ><span>Version démo 1.0.0</span>
+            </footer>
+          </section>
+
+          <section class="page-view" id="page-messages">
+            <div class="section-title-row">
+              <div>
+                <div class="eyebrow">COMMUNICATION</div>
+                <h1>Messages</h1>
+                <p class="page-subtitle">
+                  Centre de communication de l'établissement.
+                </p>
+              </div>
+              <button class="button button-primary" data-backend="true">
+                ＋ Nouveau message
+              </button>
+            </div>
+            <article class="panel full-panel">
+              <div class="message-list">
+                <div class="message-row">
+                  <div class="avatar avatar-blue">MK</div>
+                  <div class="message-content">
+                    <strong
+                      >Meriem Kacem
+                      <span class="message-label">Enseignante</span></strong
+                    >
+                    <p>
+                      Bonjour, les résultats du dernier devoir de mathématiques
+                      sont prêts.
+                    </p>
+                    <small>Aujourd'hui · 10:42</small>
+                  </div>
+                  <span class="message-unread"></span>
+                </div>
+                <div class="message-row">
+                  <div class="avatar avatar-green">AD</div>
+                  <div class="message-content">
+                    <strong
+                      >Administration
+                      <span class="message-label">Administration</span></strong
+                    >
+                    <p>Rappel : réunion pédagogique vendredi à 14h.</p>
+                    <small>Hier · 16:20</small>
+                  </div>
+                </div>
+                <div class="message-row">
+                  <div class="avatar avatar-orange">HA</div>
+                  <div class="message-content">
+                    <strong
+                      >Hichem Ayadi
+                      <span class="message-label">Enseignant</span></strong
+                    >
+                    <p>
+                      Le laboratoire informatique sera disponible jeudi
+                      après-midi.
+                    </p>
+                    <small>10 novembre · 09:15</small>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <footer class="footer">
+              <span>© 2026 SmartSchool · Conçu par Rayen Essayeb</span
+              ><span>Version démo 1.0.0</span>
+            </footer>
+          </section>
+
+          <section class="page-view" id="page-settings">
+            <div class="section-title-row">
+              <div>
+                <div class="eyebrow">CONFIGURATION</div>
+                <h1>Paramètres</h1>
+                <p class="page-subtitle">
+                  Personnalisez les informations de votre établissement.
+                </p>
+              </div>
+            </div>
+            <article class="panel settings-panel">
+              <div class="settings-heading">
+                <h2>Informations générales</h2>
+                <p>Informations affichées sur le portail scolaire.</p>
+              </div>
+              <div class="settings-form">
+                <label
+                  >Nom de l'établissement<input
+                    value="Lycée Pilote de Médenine"
+                    disabled /></label
+                ><label
+                  >Année scolaire<input value="2026 – 2027" disabled /></label
+                ><label
+                  >Adresse e-mail<input
+                    value="contact@lycee-pilote.tn"
+                    disabled /></label
+                ><label
+                  >Langue du portail<select disabled>
+                    <option>Français</option>
+                  </select></label
+                >
+                <div class="settings-note">
+                  Les modifications de ces paramètres nécessitent une connexion
+                  à la base de données.
+                </div>
+                <button class="button button-primary" data-backend="true">
+                  Enregistrer les modifications
+                </button>
+              </div>
+            </article>
+            <footer class="footer">
+              <span>© 2026 SmartSchool · Conçu par Rayen Essayeb</span
+              ><span>Version démo 1.0.0</span>
+            </footer>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      <span class="toast-icon">i</span>
+      <div>
+        <strong>Fonctionnalité en développement</strong>
+        <p>
+          Cette action nécessite un serveur PHP et une base de données SQL.
+          SmartSchool est actuellement une démonstration locale, non publiée et
+          en cours de développement.
+        </p>
+      </div>
+      <button id="closeToast" aria-label="Fermer">×</button>
+    </div>
+    <div class="modal-backdrop" id="modalBackdrop">
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <div class="modal-symbol">⌁</div>
+        <button class="modal-close" id="modalClose" aria-label="Fermer">
+          ×</button
+        ><span class="modal-kicker">SMARTSCHOOL · INFORMATION</span>
+        <h2 id="modalTitle">Fonctionnalité en développement</h2>
+        <p>
+          Cette action nécessite une connexion au serveur (PHP) et à la base de
+          données (SQL).
+        </p>
+        <div class="modal-status">
+          <span class="pulse"></span>
+          <div>
+            <strong>Site non publié — travaux en cours</strong
+            ><small
+              >Cette interface est actuellement une démonstration
+              front-end.</small
+            >
+          </div>
+        </div>
+        <p class="modal-foot">
+          Les fonctionnalités seront activées après le développement du backend
+          et le déploiement du site.
+        </p>
+        <button class="button button-primary modal-ok" id="modalOk">
+          J'ai compris
+        </button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
