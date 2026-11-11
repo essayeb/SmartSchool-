@@ -1,4 +1,4 @@
-# SmartSchool — Portail de gestion scolaire
+# SmartSchool, le portail de gestion scolaire
 
 Projet front-end réalisé par **Rayen Essayeb** avec HTML, CSS et JavaScript.
 
