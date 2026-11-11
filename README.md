@@ -1,7 +1,5 @@
 # SmartSchool, le portail de gestion scolaire
 
-Projet front-end réalisé par **Rayen Essayeb** avec HTML, CSS et JavaScript.
-
 ## Lancer le projet
 1. Téléchargez et extrayez `SmartSchool.zip`.
 2. Ouvrez le dossier `smart-school`.
